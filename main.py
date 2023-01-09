@@ -41,14 +41,6 @@ np.savetxt("outcome_files/X_test.csv", X_test, delimiter=",")
 np.savetxt("outcome_files/y_train.csv", y_train, delimiter=",")
 np.savetxt("outcome_files/y_test.csv", y_test, delimiter=",")
 
-
-
-# Define the model architecture
-# model = tf.keras.Sequential([
-#     tf.keras.layers.Dense(16, input_shape=(X_train.shape[1],), activation='relu'),
-#     tf.keras.layers.Dense(1, activation='sigmoid')
-# ])
-
 # Utworzenie instancji klasyfikatora
 knn = KNeighborsClassifier(n_neighbors=7, metric='minkowski')
 
@@ -61,14 +53,3 @@ y_pred = knn.predict(X_test)
 # Evaluate the accuracy of the predictions
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
-
-# # Compile the model
-# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-#
-# # Train the model
-# model.fit(X_train, y_train, epochs=100, batch_size=32)
-#
-# # Evaluate the model on the test data
-# loss, accuracy = model.evaluate(X_test, y_test)
-# print("Test Loss:", loss)
-# print("Test Accuracy:", accuracy)
